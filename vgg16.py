@@ -77,8 +77,8 @@ def vgg16_model(img_rows, img_cols, channel=1, num_classes=None):
     model.add(Dense(num_classes, activation='softmax'))
 
     # Uncomment below to set the first 10 layers to non-trainable (weights will not be updated)
-    #for layer in model.layers[:10]:
-    #    layer.trainable = False
+    for layer in model.layers[:10]:
+        layer.trainable = False
 
     # Learning rate is changed to 0.001
     sgd = SGD(lr=1e-3, decay=1e-6, momentum=0.9, nesterov=True)
